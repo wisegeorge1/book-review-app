@@ -1,5 +1,5 @@
 # Use Node.js LTS as base image
-FROM node:18
+FROM node:20-alpine
 
 # Set working directory
 WORKDIR /app
@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install
+RUN npm ci --omit-dev
 
 # Copy the rest of the application files
 COPY . .
